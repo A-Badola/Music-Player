@@ -1,0 +1,361 @@
+@import "mixins";
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.wrapper{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to left,#646055,#302b38);
+  @include breakpoint-down(small)
+  {
+    background: linear-gradient(to top,#4d4b44 , #302b38);
+    flex-direction: column;
+  }
+
+  button{
+    padding: 20px 25px;
+    margin: 0 20px;
+  }
+  #head_logo{
+    margin: 0 20px;
+    padding: 20px 25px;
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    font-size: 30px;
+    color: #d4dbdb;
+    @include breakpoint-down(small)
+    {
+      top: 0%;
+      left: -2%;
+      font-size: 20px;
+      position: relative;
+    }
+    text-transform: capitalize;
+
+    i{
+      margin-right: 15px;
+      @include breakpoint-down(small)
+      {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .left, .right{
+    height:100%;
+    width:50%;
+    @include breakpoint-down(small)
+    {
+      width: 100%;
+    }
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+  }
+
+  .left img{
+    height: 22rem;
+    width: 70%;
+    border-radius:15px;
+    box-shadow: 2px 0px 25px 15px rgba(21, 24, 24, 0.2);
+    @include breakpoint-down(small)
+    {
+      height: 17.625rem;
+      width: 18.625rem;
+      border-radius:15px;
+    }
+  }
+
+  input[type="range"]{
+    -webkit-appearance: none;
+    width: 50%;
+    outline: none;
+    height: 4px;
+    margin: 0 20px;
+    @include breakpoint-down(small)
+    {
+      width: 30%;
+      height: 3px;
+    }
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track{
+    background-color: #d4d8d8;
+    height: 5px;
+    cursor: pointer;
+    border-radius: 1px;
+    border: 1px solid rgb(116, 107, 107);
+  }
+  input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 30px;
+    width: 30px;
+    margin-top: -12px;
+    background: coral;
+    border-radius: 50px;
+    cursor: pointer;
+    @include breakpoint-down(small){
+      height: 25px;
+      width: 25px;
+      margin-top: -8px;
+    }
+  }
+  .left input[type="range"]::-webkit-slider-thumb{
+    @include breakpoint-down(small){
+      height: 25px;
+      width: 25px;
+      margin-top: -10px;
+    }
+  }
+  .right input[type="range"]{
+    width: 50%;
+    @include breakpoint-down(small){
+      height: 3px;
+      width: 60%;
+    }
+  }
+
+  .left .vol{
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d4d8d8;
+    @include breakpoint-down(small)
+    {
+      bottom: -85%;
+    }
+
+    p{
+      font-size: 1.125rem;
+      width: 30px;
+      text-align: center;
+      @include breakpoint-down(small)
+      {
+       font-size: 0.875rem;
+      }
+    }
+
+    i{
+      cursor:pointer;
+      padding: 12px 20px;
+      background:coral;
+    }
+
+    i:hover{
+      background: rgba(51, 77, 77, 0.2);
+    }
+
+    #volume_num{
+      padding: 10px 12px;
+      margin: 0 5px 0 0;
+      background: rgba(51 ,71, 71, 0.2);
+    }
+  }
+
+  .right .on_song{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include breakpoint-down(small)
+    {
+      position: relative;
+      bottom: 0.75rem;
+
+    }
+    button{
+      border: none;
+      height: 5rem;
+      width: 5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      outline: none;
+      background: rgba(51 ,71, 71, 0.2);
+      @include breakpoint-down(small)
+      {
+        height: 3.125rem;
+        width: 3.125rem;
+        margin: 0 10px;
+        i:before{
+          font-size: 1rem;
+        }
+      }
+    }
+
+    
+
+  }
+
+  .right {
+    .rightDown{
+      height: 100%;
+      width: 100%;
+      position: relative;
+      top: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      @include breakpoint-down(small){
+        top: 0px;
+      }
+    }
+    #title{
+      position: absolute;
+      top: 120px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-transform: capitalize;
+      color:#d4d8d8;
+      font-size: 40px;
+      @include breakpoint-down(small){
+        font-size: 1.375rem;
+        top: 15px;
+        left: 40%;
+      }
+    }
+    #artist{
+      position: absolute;
+      top: 180px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-transform: capitalize;
+      color:#d4d8d8;
+      font-size: 20px;
+      @include breakpoint-down(small){
+        top: 50px;
+        left: 40%;
+        font-size: 1rem;
+      }
+    }
+
+    .timeline{
+      position: absolute;
+      bottom: 27%;
+      left: 50%;
+      width: 95%;
+      margin-top: 50px;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include breakpoint-down(small){
+        bottom: 62%;
+        left: 41%;
+      }
+      input[type="range"]::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        height: 25px;
+        width: 25px;
+        @include breakpoint-down(small){
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+
+    }
+
+    #auto {
+      padding: 10px 15px;
+      margin-top: 25px;
+      border:none;
+      border-radius: 10px;
+      cursor: pointer;
+      color:#e3e7e7;
+      background:rgba(51 ,71, 71, 0.2);
+      outline:none;
+      i {
+        margin-left: 7px;
+        @include breakpoint-down(small){
+          margin-left:0px;
+        }
+      }
+    }
+    #autoPM {
+      #auto{
+        padding: 10px 15px;
+        margin-top: 25px;
+        border:none;
+        border-radius: 10px;
+        cursor: pointer;
+        color: #e3e7e7;
+        background:rgba(51 ,71, 71, 0.2);
+        outline:none;
+        position: relative;
+        top: -1.5625rem;
+        left: 7.875rem;
+        margin-left:0px;
+      }
+    }
+    button:hover{
+      background: coral;
+    }
+
+    #playNow{
+      background: coral;
+    }
+
+    i:before{
+      color: #e3e9e9;
+      font-size: 25px;
+    }
+
+    #auto i:before{
+      font-size: 15px;
+    }
+    .songNo{
+      position: absolute;
+      top:40px;
+      right: 50px;
+      height: 20px;
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color:#e3e7e7;
+      border-radius: 5px;
+      background: rgba(51 ,71, 71, 0.2);
+      @include breakpoint-down(small){
+        top: 22px;
+        right: 43px;
+        height: 21px;
+        width: 15px;
+        font-size: 0.850rem;
+      }
+      p:nth-child(2){
+        margin: 0 5px;
+      }
+    }
+  }
+}

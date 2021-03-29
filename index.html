@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My P-Player</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"  />
+  <link rel="stylesheet" type="text/css" href="style.css" >
+</head>
+<body>
+  <div class="wrapper" >
+    <p id="head_logo" ><i class="fa fa-music" aria-hidden="true"></i>   My Music</p>
+ 
+    <!---left side of screen -->
+    <div class="left">
+      <!--track cover pic-->
+      <img id="img_track" />
+      <div class="vol">
+        <p id="volume_num">90</p>
+
+        <i class="fa fa-volume-up" aria-hidden="true" id="vol_btn" onclick="muteToggle()"></i>
+        <input type="range" min="0" max="100" value="90" onchange="vol_ch()" id="volume">
+      </div>
+    </div>
+
+    <!--- Right Side-->
+    <div class="right" >
+      
+      <!--- title and artist-->
+      <div class="rightDown">
+        <div class="songNo">
+          <p id="now">1</p>
+          <p>/</p>
+          <p id="total">5</p>
+        </div>
+        <div id="autoPM"></div> 
+      <div class="autoMobile"></div>
+      <p id="title">title.mp3</p>
+      <p id="artist">Artist name</p>
+
+      <div class="on_song">
+        <button onclick="preTrack()" id="previous" ><i class="fa fa-step-backward" aria-hidden="true"></i></button>
+        <button onclick="playit()" id="playNow"><i class="fa fa-play" aria-hidden="true"></i></button>
+        <button onclick="nextTrack()" id="next" ><i class="fa fa-step-forward" aria-hidden="true"></i></button> 
+      </div>
+
+      <div class="timeline" >
+        <input type="range" min="0" max="100" value="0" id="durationRange" onchange="jumpTo()">
+      </div>
+      <div id="autoP"></div>
+    </div>
+    </div>
+  </div>
+
+  <!---js -->
+  <script src="script.js"></script>
+</body>
+</html>
